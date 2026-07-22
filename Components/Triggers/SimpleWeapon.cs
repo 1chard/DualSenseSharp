@@ -2,14 +2,14 @@
 
 namespace DualSenseSharp.Components.Triggers;
 
-public class Weapon : TriggerMode
+public class SimpleWeapon : TriggerMode
 {
     public override byte Mode => 0x02;
     public readonly byte StartPosition;
     public readonly byte EndPosition;
     public readonly byte Strength;
 
-    public Weapon(byte startPosition, byte endPosition, byte strength)
+    public SimpleWeapon(byte startPosition, byte endPosition, byte strength)
     {
         StartPosition = startPosition;
         EndPosition = endPosition;

@@ -2,13 +2,13 @@
 
 namespace DualSenseSharp.Components.Triggers;
 
-public class Feedback : TriggerMode
+public class SimpleFeedback : TriggerMode
 {
     public override byte Mode => 0x01;
     public readonly byte Position;
     public readonly byte Strength;
 
-    public Feedback(byte position, byte strength)
+    public SimpleFeedback(byte position, byte strength)
     {
         Position = position;
         Strength = strength;
