@@ -5,6 +5,8 @@ namespace DualSenseSharp.Transport;
 internal abstract class BaseTransport : IDisposable
 {
     protected readonly HidStream _stream;
+    public bool Disposed { get; private set; }
+
     internal BaseTransport(HidDevice device)
     {
         _stream = device.Open();
@@ -100,11 +102,13 @@ internal abstract class BaseTransport : IDisposable
 
     public void Dispose()
     {
-        _stream.Dispose();
-        if (Closed != null)
+        if (!Disposed)
         {
-            Closed.Invoke(this, EventArgs.Empty);
+            _stream.Dispose();
+            Closed?.Invoke(this, EventArgs.Empty);
+            Disposed = true;
         }
+
     }
 
     internal EventHandler? Closed { get; set; } = null;

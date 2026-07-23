@@ -9,6 +9,7 @@ public class Resistance : TriggerMode
     public readonly byte Start;
     public readonly byte Force;
 
+    // byte 0-9, force 0-8
     public Resistance(byte start, byte force)
     {
         if (start > 9 || start < 0)
